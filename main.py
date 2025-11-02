@@ -21,7 +21,12 @@ class SupportRequest(BaseModel):
 
 @app.get("/", response_class=HTMLResponse)
 async def root():
-    with open('templates/index.html', 'r', encoding='utf-8') as f:
+    with open('templates/home.html', 'r', encoding='utf-8') as f:
+        return HTMLResponse(content=f.read())
+
+@app.get("/game-ai-la-trieu-phu", response_class=HTMLResponse)
+async def game_page():
+    with open("templates/index.html", "r", encoding="utf-8") as f:
         return HTMLResponse(content=f.read())
 
 @app.post("/api/start")
